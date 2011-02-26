@@ -5,13 +5,17 @@ import logging
 import os
 
 class MainHandler(webapp.RequestHandler):
-    
-    def get(self):
-        logging.debug("Foo logging Bar")
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.out.write("Version: %s\n" % os.environ["CURRENT_VERSION_ID"] )
+
+    def post(self):
 #        for name in os.environ.keys():
-#            self.response.out.write("%s = %s\n" % (name, os.environ[name]))
+#            self.response.out.write("%s = %s<br />\n" % (name, os.environ[name]))
+
+        logging.debug("chat.get()")
+        logging.info("chat.get()")
+        logging.error("chat.get()")
+
+#        self.response.headers['Content-Type'] = 'text/plain'
+#        self.response.out.write('')
 
 
 def main():

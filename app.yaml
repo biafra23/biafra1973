@@ -4,5 +4,19 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: .*
+
+- url:  /_ah/xmpp/message/chat/
+  script: chat.py
+
+- url:  /_ah/xmpp/message/available/
+  script: chat.py
+
+- url: /.*
   script: main.py
+
+inbound_services:
+- mail
+- warmup
+- xmpp_message
+#- xmpp_presence
+#- xmpp_subscribe
